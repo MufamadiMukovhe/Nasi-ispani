@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Nasi_ispani.Models.Job>
+
+@{
+    ViewBag.Title = "ViewJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewJobs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<br/>
+<br />
+<br/>
+<br/>
+<table style="border:solid; border-color: grey"; align="center" >
+    <thead >
+        <tr>
+            <th>
+                <label>#</label>
+            </th>
+            <th align="center">
+                <label>Title</label>
+            </th>
+            <th>
+                <label>Department</label>
+            </th>
+            <th>
+                <label>Company Name</label>
+            </th>
+            <th>
+                <label>Type</label>
+            </th>
+            <th>
+                <label>Location</label>
+            </th>
+            <th>
+                <label>Offer</label>
+            </th>
+            <th>
+                <label>Experience in (yrs)</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr >
+            <td >
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td >
+                @Html.DisplayFor(modelItem => item.Offer)
+            </td>
+            <td align="center">
+                @Html.DisplayFor(modelItem => item.Experience_Required, new { style = "align-content:center" })
+            </td>
+            <td>
+                <div class="col-md-3">
+                    <div class="main-button">
+                        <a href="@Url.Action("AddApplication", "Account")" class="fa fa-bullseye">Apply</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+        </tr>
+        <tr>
+        </tr>
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+
+    
+</table>
+<div class="col-md-3">
+    <div class="main-button">
+        <a href="@Url.Action("Jobs", "Home")">Back</a>
+    </div>
+</div>
